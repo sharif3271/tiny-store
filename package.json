@@ -1,0 +1,44 @@
+{
+  "name": "@asanflow/tinystore",
+  "version": "0.9.1",
+  "type": "module",
+  "description": "A tiny store for managing state",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "minify": "terser dist/index.js -o dist/index.js --compress --mangle",
+    "pub": "npm publish --access=public",
+    "prepublishOnly": "npm run build && npm run minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharif3271/tiny-store.git"
+  },
+  "keywords": [
+    "store",
+    "state",
+    "management",
+    "tiny store",
+    "state management",
+    "state store",
+    "lightweight"
+  ],
+  "author": "Sharif Eiri <sharif3271@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sharif3271/tiny-store/issues"
+  },
+  "homepage": "https://github.com/sharif3271/tiny-store#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "jest": "^29.7.0",
+    "terser": "^5.36.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.5.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
