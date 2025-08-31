@@ -116,7 +116,15 @@ export function useStore<T, P extends Path<T>>(store: TinyStore<T>, path: P): [I
   const [state, setState] = useState(() => store.getState(path));
 
   useEffect(() => {
-    const unsubscribe = store.subscribe(path, setState);
+     const unsubscribe = store.subscribe(path, (value) => {
+      if (Array.isArray(value)) {
+        setState([...value] as InferType<T, P>);
+      } else if (typeof value === 'object' && value !== null) {
+        setState({ ...value });
+      } else {
+        setState(value);
+      }
+    });
     return () => unsubscribe();
   }, [store, path]);
 
